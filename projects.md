@@ -1,4 +1,2 @@
-# Minecraft Mods
-
-1. Custom biom
-2. Custom mod
+# Now working on:
+- 1. Minecraft Mod - new dimension, bioms, items, mobs?
