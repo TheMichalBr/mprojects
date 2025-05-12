@@ -1,3 +1,3 @@
-# Now working on:
-- 1. Minecraft Mod - new dimension, bioms, items, mobs?
-- 2. Hidden projects...
+# Working on
+1. Minecraft mod - new dimension, bioms, items, mobs
+2. Hidden projects
