@@ -1,37 +1,3 @@
-<!DOCTYPE html> <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MichalBr - Storage</title>
-    <link rel="icon" href="./icon.webp" type="image/x-icon">
-    <link rel="stylesheet" href="index.css">
-</head>
-
-<body>
-    <header>
-
-        <div class="logo" title="Logo">
-            <img width="30" height="30"
-                src="https://raw.githubusercontent.com/TheMichalBr/themichalbr/refs/heads/main/src/assets/icons/icon.webp">
-            <span>MichalBr - Storage</span>
-        </div>
-
-        <input type="text" id="searchInput" placeholder="🔍 Search by name...">
-
-    </header>
-
-    <main>
-        <div id="filmGrid" class="grid"></div>
-    </main>
-
-    <script src="index.js"></script>
-
-</body> </html>
-
-
-
-
 :root {
     --bg: #0f1115;
     --panel: #141821;
@@ -40,12 +6,12 @@
     --accent-2: #2dd4bf;
     --border: #222838;
   }
-  
+
   html,
   body {
     height: 100%;
   }
-  
+
   body {
     margin: 0;
     font-family: 'Segoe UI', system-ui, sans-serif;
@@ -54,7 +20,7 @@
       var(--bg);
     color: var(--text);
   }
-  
+
   header {
     display: flex;
     justify-content: space-between;
@@ -66,7 +32,7 @@
     backdrop-filter: blur(10px);
     z-index: 10;
   }
-  
+
   .logo {
     display: flex;
     align-items: center;
@@ -74,16 +40,16 @@
     font-weight: 700;
     letter-spacing: 0.3px;
   }
-  
+
   .logo svg {
     width: 28px;
     height: 28px;
   }
-  
+
   .logo span {
     font-size: 1rem;
   }
-  
+
   #searchInput {
     padding: 8px 14px;
     border-radius: 999px;
@@ -93,20 +59,20 @@
     width: 220px;
     transition: all 0.3s ease;
   }
-  
+
   #searchInput:focus {
     outline: none;
     border-color: var(--accent-2);
     background: #1c2230;
   }
-  
+
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 20px;
     padding: 24px;
   }
-  
+
   .card {
     position: relative;
     overflow: hidden;
@@ -116,19 +82,19 @@
     box-shadow: 0 8px 20px rgba(0, 0, 0, .35);
     transition: transform .3s ease, box-shadow .3s ease;
   }
-  
+
   .card:hover {
     transform: translateY(-6px) scale(1.03);
     box-shadow: 0 12px 28px rgba(0, 0, 0, .5);
   }
-  
+
   .cover img {
     width: 100%;
     height: 270px;
     object-fit: cover;
     display: block;
   }
-  
+
   .overlay {
     position: absolute;
     bottom: -100%;
@@ -142,45 +108,13 @@
     font-size: 0.95rem;
     transition: bottom 0.5s ease;
   }
-  
+
   .card:hover .overlay {
     bottom: 0;
   }
-  
+
   .year {
     color: var(--accent-2);
     font-weight: 700;
     margin-left: 0.5px;
   }
-
-
-
-  const grid = document.getElementById("filmGrid");
-const searchInput = document.getElementById("searchInput");
-
-function renderCards(list) {
-  grid.innerHTML = list.map(f => `
-    <div class="card">
-      <div class="cover">
-        <img src="${f.cover}" alt="${escapeHtml(f.title)}">
-      </div>
-      <div class="overlay">
-        ${escapeHtml(f.title)} <span class="year">(${f.year})</span>
-      </div>
-    </div>
-  `).join('');
-}
-
-function escapeHtml(str) {
-  return String(str).replace(/[&<>"]+/g, s => ({
-    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'
-  }[s]));
-}
-
-searchInput.addEventListener("input", () => {
-  const q = searchInput.value.toLowerCase();
-  const filtered = films.filter(f => f.title.toLowerCase().includes(q) || String(f.year).includes(q));
-  renderCards(filtered);
-});
-
-renderCards(films);
